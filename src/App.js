@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Higher-order component
+const withClassName = (WrappedComponent, className) => {
+  return (props) => {
+    return <WrappedComponent {...props} className={className} />;
+  };
+};
+
+// Example component
+const MyComponent = ({ className }) => {
+  return <div className={className}>Hello, World!</div>;
+};
+
+// Usage of the HOC
+const ComponentWithClass = withClassName(MyComponent, 'my-class');
+
+// Render the component
+const App = () => {
+  return <ComponentWithClass />;
+};
 
 export default App;
+
+
+//wnbdjkbwejkdbjwebfjbwejfbejbfjebwj
